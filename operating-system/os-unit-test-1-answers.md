@@ -52,7 +52,6 @@
   - **Worst Fit:** Allocates the largest block, leaving large free spaces for future processes. Can result in wasted space.
 - **Example:** For a process needing 100 KB of memory, First Fit might assign the first 200 KB block, Best Fit would assign a 150 KB block, and Worst Fit might assign a 500 KB block.
 
-... (Continue similarly for all remaining questions)
 
 ## Q10: Explain Demand Paging and the Advantages and Disadvantages of Virtual Memory
 - **Short Answer:** Demand paging is a memory management technique where pages are loaded into memory only when needed. Virtual memory extends physical memory using disk space.
