@@ -18,7 +18,7 @@ HTML is a markup language used to structure web pages.
      - `<h1>`: Represents a heading.
      - `<p>`: Represents a paragraph.
 
-### Example from Professor:
+### Example:
 ```html
 <!DOCTYPE html>
 <html>
