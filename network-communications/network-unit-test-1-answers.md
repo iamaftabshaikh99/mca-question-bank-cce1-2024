@@ -1,7 +1,5 @@
 # Computer Networks and Data Communication -  Answers
 
-Sure! Here are the answers to your questions in the specified format:
-
 ### 1. What is the need for layering in network architecture, and how does it simplify the design of communication systems?
 
 **Short Answer:**  
