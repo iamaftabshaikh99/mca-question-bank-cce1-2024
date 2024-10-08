@@ -1,278 +1,256 @@
 # Computer Networks and Data Communication -  Answers
 
-### 1. Need for Layering in Network Architecture
-Layering in network architecture simplifies the design of communication systems by:
-* **Dividing the complex problem into smaller, manageable subproblems:** Each layer focuses on a specific aspect of communication, making it easier to design, implement, and troubleshoot.
-* **Enhancing modularity and flexibility:** Changes to one layer can be made without affecting other layers, promoting flexibility and maintainability.
-* **Promoting standardization:** Layering fosters standardization, allowing for interoperability between different devices and systems.
+Sure! Here are the answers to your questions in the specified format:
 
-### 2. ISO-OSI Model Layers and Functions
+### 1. What is the need for layering in network architecture, and how does it simplify the design of communication systems?
 
-1. **Physical Layer:** Transmits raw bits over a physical medium.
-2. **Data Link Layer:** Handles framing, error detection and correction, and flow control.
-3. **Network Layer:** Routes data packets from source to destination across the network.
-4. **Transport Layer:** Provides reliable end-to-end data delivery, flow control, and error recovery.
-5. **Session Layer:** Establishes, manages, and terminates sessions between applications.
-6. **Presentation Layer:** Handles data encoding, encryption, and compression.
-7. **Application Layer:** Provides services to applications, such as file transfer, email, and web browsing.
+**Short Answer:**  
+Layering simplifies network design by dividing complex functions into manageable segments.
 
-### 3. TCP/IP vs. OSI Model
-* **Number of layers:** The TCP/IP model has four layers, while the OSI model has seven.
-* **Functionality:** The TCP/IP model combines some of the functions of the OSI model's layers, making it simpler but less detailed.
-* **Interoperability:** The OSI model is more focused on interoperability between different systems, while the TCP/IP model is more practical for implementation.
+**Detailed Answer:**  
+Layering in network architecture organizes the communication process into distinct layers, each responsible for specific functions. This abstraction allows developers to focus on individual layers without needing to understand the entire system. It simplifies troubleshooting, enhances modularity, and enables interoperability between different systems and technologies.
 
-### 4. TCP/IP Model
-[Image of TCP/IP Model]
+**Example:**  
+In the OSI model, the Application layer handles user interactions, while the Transport layer manages end-to-end communication. Changes in one layer (e.g., application protocols) can occur without affecting others (e.g., network protocols).
 
-The TCP/IP model consists of four layers:
+---
 
-* **Application Layer:** Provides services to applications.
-* **Transport Layer:** Ensures reliable data delivery using TCP or UDP.
-* **Internet Layer:** Routes packets across the network using IP.
-* **Network Access Layer:** Handles physical transmission of data.
+### 2. Describe the seven layers of the ISO-OSI model and the primary function of each layer.
 
-### 5. Internet Checksum
-The Internet checksum is a simple error detection method that calculates the sum of all 16-bit words in a data packet and stores it in the header. The receiver recalculates the checksum and compares it to the received value. If they match, the data is assumed to be correct.
+**Short Answer:**  
+The OSI model has seven layers: Application, Presentation, Session, Transport, Network, Data Link, and Physical.
 
-**Example:**
-Data: 1010 1111 0001 0010
-Checksum: 0111 1100
+**Detailed Answer:**  
+1. **Application Layer:** Interfaces directly with end-user applications (e.g., HTTP, FTP).
+2. **Presentation Layer:** Translates data formats, handles encryption and compression.
+3. **Session Layer:** Manages sessions and controls dialogues between applications.
+4. **Transport Layer:** Ensures reliable or unreliable delivery of messages (e.g., TCP, UDP).
+5. **Network Layer:** Handles routing and forwarding of packets (e.g., IP).
+6. **Data Link Layer:** Provides node-to-node data transfer, error detection, and correction.
+7. **Physical Layer:** Transmits raw bits over physical media (e.g., cables, signals).
+
+**Example:**  
+When a user accesses a website, the request travels through all seven layers of the OSI model, ensuring proper communication.
+
+---
+
+### 3. What are the main differences between the TCP/IP model and the OSI model in terms of layers and functionality?
+
+**Short Answer:**  
+The TCP/IP model has four layers, while the OSI model has seven, with different functionalities.
+
+**Detailed Answer:**  
+The TCP/IP model consists of:
+1. **Application Layer:** Combines OSI’s Application, Presentation, and Session layers.
+2. **Transport Layer:** Similar to OSI, responsible for end-to-end communication.
+3. **Internet Layer:** Equivalent to OSI’s Network layer, handling routing.
+4. **Link Layer:** Combines OSI’s Data Link and Physical layers.
+
+In contrast, the OSI model provides a more detailed framework, allowing for a clearer separation of functions.
+
+**Example:**  
+TCP/IP is widely used in real-world applications like the Internet, while the OSI model serves as a theoretical framework.
+
+---
+
+### 4. What is TCP/IP? Explain with a detailed diagram.
+
+**Short Answer:**  
+TCP/IP is a set of communication protocols used for the Internet and similar networks.
+
+**Detailed Answer:**  
+TCP/IP (Transmission Control Protocol/Internet Protocol) is the foundational suite of protocols for the Internet. It consists of four layers:
+1. **Application Layer:** Supports application and end-user processes (HTTP, FTP).
+2. **Transport Layer:** Manages communication between hosts (TCP ensures reliable transmission; UDP allows for faster, connectionless transmission).
+3. **Internet Layer:** Routes packets across networks (IP handles addressing and routing).
+4. **Link Layer:** Controls the physical transmission of data.
+
+**Example:**  
+A diagram illustrating these layers would show each layer's protocols and how they interact to enable communication.
+
+---
+
+### 5. Give the internet checksum method with a suitable example.
+
+**Short Answer:**  
+The Internet checksum method uses a simple addition algorithm to detect errors in data transmission.
+
+**Detailed Answer:**  
+The checksum involves summing up 16-bit words in the data and taking the one's complement of the final sum. If the result is zero, the data is considered error-free. If not, an error may have occurred.
+
+**Example:**  
+For the data sequence: 11000011 10101010 11110000,
+1. Break into 16-bit words: 11000011 10101010 and 11110000.
+2. Sum the words: 11000011 + 10101010 + 11110000 = 1 01111001.
+3. Take the one's complement: 10000110 is the checksum.
+
+---
 
 ### 6. What are some common error detection techniques used in data transmission, and how do they work?
 
-Error detection techniques are essential to ensure the integrity of data transmitted over communication channels. Here are some common methods:
+**Short Answer:**  
+Common error detection techniques include parity checks, checksums, and cyclic redundancy checks (CRC).
 
-1. **Parity Checking:**
-   * **Simple parity:** An extra bit (parity bit) is added to each data word. The parity bit is set to 1 if the number of 1s in the data word is odd, and 0 if the number of 1s is even.
-   * **Even parity:** The parity bit is set to 1 if the number of 1s in the data word is odd.
-   * **Odd parity:** The parity bit is set to 1 if the number of 1s in the data word is even.
-   * **How it works:** The receiver checks the parity of the received data word and compares it to the expected parity. If they don't match, an error is detected.
+**Detailed Answer:**  
+1. **Parity Checks:** Adds a parity bit to ensure the total number of 1s is even (even parity) or odd (odd parity).
+2. **Checksums:** Calculates a sum of data segments, as described earlier, to verify integrity.
+3. **Cyclic Redundancy Check (CRC):** Uses polynomial division to produce a checksum, ensuring high reliability for detecting changes in raw data.
 
-2. **Checksum:**
-   * **Method:** The checksum is the sum of all data words in a message.
-   * **How it works:** The sender calculates the checksum and appends it to the message. The receiver calculates the checksum of the received message and compares it to the received checksum. If they don't match, an error is detected.
+**Example:**  
+CRC is often used in network communications and storage devices to ensure data integrity.
 
-3. **Cyclic Redundancy Check (CRC):**
-   * **Method:** A mathematical operation that calculates a checksum based on the data being transmitted.
-   * **How it works:** The sender calculates the CRC and appends it to the data. The receiver calculates the CRC of the received data and compares it to the received CRC. If they match, the data is assumed to be correct.
+---
 
-### 7. Framing
-**Framing** in data communication is the process of dividing data into meaningful units called frames. These frames are enclosed by special sequences of bits or characters, known as delimiters, which mark the beginning and end of each frame.
+### 7. What is framing in data communication, and why is it essential for the reliable transfer of data?
 
-Framing is essential for reliable data transfer because it:
+**Short Answer:**  
+Framing is the process of breaking data into manageable packets or frames for transmission.
 
-* **Provides a clear structure for data transmission:** By dividing data into frames, it becomes easier for the receiver to identify and process individual units of information.
-* **Enables error detection and correction:** Framing allows for the inclusion of error-checking mechanisms, such as checksums or parity bits, to detect and potentially correct errors that may occur during transmission.
-* **Facilitates flow control:** Framing can be used to regulate the rate of data transmission between the sender and receiver, preventing buffer overflows and ensuring efficient use of network resources.
+**Detailed Answer:**  
+Framing encapsulates packets of data with headers and trailers that contain control information. It helps identify the beginning and end of each frame, enabling proper synchronization and error detection. This structure is crucial for reliable communication, as it facilitates flow control and data integrity.
 
-### 8. Framing Methods
-## Framing Methods in Data Communication
+**Example:**  
+In Ethernet networks, frames are used to encapsulate packets, allowing devices to identify the source, destination, and type of data being transmitted.
 
-Framing is the process of dividing data into meaningful units called frames, which are transmitted over a communication channel. This is essential for reliable data transfer as it allows the receiver to identify the start and end of each data unit.
+---
 
-### Types of Framing Methods
+### 8. Can you describe the different types of framing methods, such as fixed-size framing and variable-size framing, and their advantages?
 
-1. **Fixed-Size Framing:**
-   * **Definition:** In this method, all frames have a fixed length, determined by the protocol.
-   * **Advantages:**
-     - Simple to implement.
-     - Efficient for applications with predictable data sizes.
-   * **Disadvantages:**
-     - Inefficient for applications with variable data sizes, as it can lead to wasted bandwidth.
-     - Susceptible to framing errors if the frame synchronization is lost.
+**Short Answer:**  
+Framing methods include fixed-size framing and variable-size framing, each with its advantages.
 
-2. **Variable-Size Framing:**
-   * **Definition:** Frames can have variable lengths, determined by special characters or sequences called delimiters.
-   * **Advantages:**
-     - More efficient for applications with variable data sizes.
-     - Can handle different data rates and traffic patterns.
-   * **Disadvantages:**
-     - More complex to implement.
-     - Susceptible to framing errors if delimiters are corrupted or lost.
+**Detailed Answer:**
+1. **Fixed-Size Framing:** All frames are of the same size. This simplicity facilitates easier processing and reduces the chance of fragmentation.
+   - **Advantages:** Predictable frame size leads to simpler design and easier implementation.
+2. **Variable-Size Framing:** Frames can vary in size, accommodating different amounts of data.
+   - **Advantages:** More efficient use of bandwidth, as it can handle different data sizes more effectively.
 
-### 9. Hamming Distance and Hamming Code
-## Hamming Distance and Hamming Code
+**Example:**  
+Ethernet typically uses fixed-size frames, while protocols like TCP can use variable-size frames based on the amount of data being sent.
 
-**Hamming Distance**
+---
 
-The Hamming distance between two binary strings of equal length is the number of positions at which the corresponding bits are different. In other words, it is the minimum number of single-bit changes required to transform one string into the other.
+### 9. What is Hamming distance? Find the Hamming codeword for the data 1001011 using even bit parity.
 
-**Example:**
+**Short Answer:**  
+Hamming distance measures the difference between two binary strings; it indicates the number of bit positions in which the strings differ.
 
-Consider the binary strings 1011 and 1100. The Hamming distance between these strings is 3 because the first, second, and fourth bits are different.
+**Detailed Answer:**  
+To find the Hamming codeword for the data 1001011 using even parity:
+1. Calculate the number of parity bits needed. For data of length \(k\), the number of parity bits \(p\) satisfies \(2^p \geq k + p + 1\). Here, \(k = 7\) (1001011), so \(p = 4\).
+2. Place the data bits and reserve positions for parity bits.
+3. Calculate the parity bits to ensure even parity across designated bits.
 
-**Hamming Code**
+**Example:**  
+For data 1001011, the calculated Hamming codeword is 101001011, where parity bits are placed at positions 1, 2, 4, and 8.
 
-A Hamming code is a type of error-correcting code that can detect and correct single-bit errors in a binary string. It adds redundant bits to the data string, allowing the receiver to determine if an error has occurred and, if so, to correct it.
+---
 
-**Hamming Code Construction**
+### 10. Explain the various types of networks.
 
-1. **Determine the number of data bits:** The number of data bits is denoted by `k`.
-2. **Determine the number of parity bits:** The number of parity bits is denoted by `r`. The minimum number of parity bits required to detect and correct single-bit errors is given by the inequality `2^r >= k + r + 1`.
-3. **Arrange the data and parity bits:** The data bits and parity bits are arranged in a specific order, such that each parity bit checks a certain set of data bits.
-4. **Calculate the parity bits:** The parity bits are calculated based on the data bits they check. For example, if a parity bit checks positions 1, 2, and 4, its value is set to 1 if the number of 1s in those positions is odd, and 0 if the number of 1s is even.
+**Short Answer:**  
+Types of networks include LAN, WAN, MAN, PAN, and WLAN.
 
-**Hamming Code Decoding**
+**Detailed Answer:**
+1. **LAN (Local Area Network):** Covers a small geographical area, like a home or office.
+2. **WAN (Wide Area Network):** Spans large geographical distances, connecting multiple LANs (e.g., the Internet).
+3. **MAN (Metropolitan Area Network):** Covers a city or a large campus, larger than a LAN but smaller than a WAN.
+4. **PAN (Personal Area Network):** A small network, typically within a range of a few meters, used for connecting personal devices (e.g., Bluetooth).
+5. **WLAN (Wireless Local Area Network):** A LAN that uses wireless communication.
 
-1. **Calculate the syndrome:** The syndrome is a binary string that indicates the position of the error, if any. It is calculated by performing a parity check on each parity bit.
-2. **Correct the error:** If the syndrome is not all zeros, it indicates that an error has occurred. The position of the error can be determined from the syndrome, and the corresponding bit can be corrected.
+**Example:**  
+A home Wi-Fi network is a WLAN, while the Internet is a WAN.
 
-**Example:**
+---
 
-Suppose we have a data string of 4 bits (k = 4). We need to determine the number of parity bits required to detect and correct single-bit errors. Using the inequality `2^r >= k + r + 1`, we find that the minimum number of parity bits is 3 (r = 3).
+### 11. Give the difference between connection-oriented and connectionless networks.
 
-The Hamming codeword can be arranged as follows:
+**Short Answer:**  
+Connection-oriented networks establish a dedicated connection before data transmission, while connectionless networks send data without prior setup.
 
-```
-P1 P2 D1 P3 D2 D3 D4
-```
+**Detailed Answer:**  
+- **Connection-Oriented:** Protocols like TCP establish a reliable connection, ensuring data is received in order and without errors.
+- **Connectionless:** Protocols like UDP send packets independently, with no guarantee of delivery or order, which reduces overhead and increases speed.
 
-where `P1`, `P2`, and `P3` are the parity bits, and `D1`, `D2`, `D3`, and `D4` are the data bits.
+**Example:**  
+TCP (connection-oriented) is used for web browsing, while UDP (connectionless) is used for live video streaming.
 
-The parity bits are calculated as follows:
+---
 
-* `P1` checks positions 1, 2, and 4.
-* `P2` checks positions 1, 3, and 4.
-* `P3` checks positions 2, 3, and 4.
+### 12. Explain various network topology with diagrams.
 
-For the data string `1001`, the Hamming codeword would be `1101001`.
+**Short Answer:**  
+Network topologies include bus, star, ring, mesh, and hybrid topologies.
 
-If an error occurs during transmission, the receiver can calculate the syndrome and use it to determine the position of the error and correct it.
+**Detailed Answer:**
+1. **Bus Topology:** All devices share a single communication line. (Simple and cost-effective, but if the main cable fails, the network goes down.)
+   
+   ![Bus topology](images/Bus%20Topology.jpeg)
 
+2. **Star Topology:** All devices are connected to a central hub or switch. (Easy to manage and troubleshoot; failure of one cable does not affect others.)
+   
+    ![Star topology](images/Star%20Topology.jpeg)
 
-### 10. Types of Networks
-## Types of Networks
+3. **Ring Topology:** Each device is
 
-Networks can be classified based on their geographical scope, topology, and technology. Here are some common types of networks:
+ connected to two others, forming a circle. (Data travels in one direction; failure of one device can disrupt the network.)
+   
+    ![Ring topology](images/Ring%20Topology.jpeg)
 
-### 1. Local Area Network (LAN)
-* **Definition:** A network connecting devices within a limited geographical area, such as a building or campus.
-* **Examples:** Home networks, office networks, school networks
-* **Characteristics:** High data transfer rates, low cost, and centralized management.
-
-### 2. Wide Area Network (WAN)
-* **Definition:** A network connecting devices across a large geographical area, such as countries or continents.
-* **Examples:** The internet, corporate networks
-* **Characteristics:** Lower data transfer rates than LANs, complex management, and often involve multiple network providers.
-
-### 3. Metropolitan Area Network (MAN)
-* **Definition:** A network connecting devices within a metropolitan area, such as a city.
-* **Examples:** Municipal networks, university networks
-* **Characteristics:** Intermediate data transfer rates between LANs and WANs, often using fiber-optic cables.
-
-### 4. Personal Area Network (PAN)
-* **Definition:** A network connecting devices within a personal space, such as a person's body or immediate surroundings.
-* **Examples:** Bluetooth networks, Wi-Fi Direct networks
-* **Characteristics:** Short range, low power consumption, and often used for wireless communication.
-
-### 5. Virtual Private Network (VPN)
-* **Definition:** A secure network connection over a public network, such as the internet.
-* **Examples:** Remote access VPNs, site-to-site VPNs
-* **Characteristics:** Encrypts data to protect privacy and security, and can be used to create secure connections between remote locations.
-
-### 11. Connection-Oriented vs. Connection-less Networks
-* **Connection-oriented:** Establishes a dedicated path between the sender and receiver before data transmission. (e.g., TCP)
-* **Connection-less:** Does not require a dedicated path. Data packets are transmitted independently. (e.g., UDP)
-
-### 12. Network Topologies
-## Network Topologies
-
-Network topologies describe the physical arrangement of devices in a network. They influence factors such as performance, reliability, and scalability. Here are some common network topologies:
-
-### 1. Bus Topology
-
-![Bus topology](images/Bus%20Topology.jpeg)
-
-* **Description:** In a bus topology, all devices are connected to a single shared cable.
-* **Advantages:**
-  - Simple and inexpensive to implement.
-  - Easy to add or remove devices.
-* **Disadvantages:**
-  - Single point of failure (if the cable fails, the entire network is down).
-  - Low performance for large networks due to collisions.
-
-### 2. Star Topology
-
-![Star topology](images/Star%20Topology.jpeg)
-
-* **Description:** In a star topology, all devices are connected to a central hub or switch.
-* **Advantages:**
-  - Easy to manage and troubleshoot.
-  - High performance compared to bus topology.
-  - Can isolate faulty devices.
-* **Disadvantages:**
-  - Requires a central hub or switch, which can be expensive.
-  - If the central hub or switch fails, the entire network is down.
-
-### 3. Ring Topology
-
-![Ring topology](images/Ring%20Topology.jpeg)
-
-* **Description:** In a ring topology, devices are connected in a circular fashion.
-* **Advantages:**
-  - High performance.
-  - Can be used for token-passing protocols.
-* **Disadvantages:**
-  - Difficult to add or remove devices.
-  - Single point of failure if the ring is broken.
-
-### 4. Mesh Topology
-
-![Mesh topology](images/Mesh-Topology-in-Computer-Networks.png)
-
-* **Description:** In a mesh topology, devices are connected directly to each other.
-* **Advantages:**
-  - Highly reliable.
-  - Can handle high traffic loads.
-* **Disadvantages:**
-  - Expensive to implement.
-  - Complex to manage.
-
-### 5. Hybrid Topology
-
-![Hybrid topology](images/Hybrid%20Topology.png)
-
-* **Description:** A combination of two or more topologies.
-* **Advantages:**
-  - Can combine the advantages of different topologies.
-  - Flexible and scalable.
-* **Disadvantages:**
-  - Can be complex to manage.
-
-The choice of network topology depends on factors such as the size of the network, the required performance, and the budget.
-
-### 13. Guided vs. Unguided Media
-**Guided Media:**
-
-* **Definition:** Data travels through a physical medium, such as copper wires or optical fibers.
-* **Examples:** Twisted pair cables, coaxial cables, optical fibers
-* **Advantages:**
-  - High data transfer rates
-  - Reliable and secure
-  - Less susceptible to interference
-* **Disadvantages:**
-  - Expensive to install and maintain
-  - Limited flexibility
-
-**Unguided Media:**
-
-* **Definition:** Data travels through the air or space.
-* **Examples:** Radio waves, microwaves, infrared radiation
-* **Advantages:**
-  - Flexible and easy to install
-  - Can cover large areas
-* **Disadvantages:**
-  - Susceptible to interference
-  - Lower data transfer rates than guided media
-  - May require line-of-sight between transmitter and receiver
-
-### 14. Zigbee, WiFi, CSMA-CD
-* **Zigbee:** A wireless technology for low-power, low-rate networks.
-* **WiFi:** A wireless technology for high-speed networks.
-* **CSMA-CD:** A carrier sense multiple access with collision detection protocol used in Ethernet networks.
-
-### 15. Access Techniques
-* **ALOHA:** Random access protocol where devices transmit data without coordination.
-* **Slotted ALOHA:** Divides time into slots and allows devices to transmit only during assigned slots.
-* **CSMA:** Carrier sense multiple access protocol where devices listen for the channel to be idle before transmitting.
-* **CSMA/CA:** Carrier sense multiple access with collision avoidance protocol uses a reservation mechanism to avoid collisions.
+4. **Mesh Topology:** Every device is interconnected. (High redundancy and reliability, but expensive and complex.)
+   
+    ![Mesh topology](images/Mesh-Topology-in-Computer-Networks.png)
+
+5. **Hybrid Topology:** Combines two or more topologies. (Flexibility and scalability; can leverage advantages of multiple topologies.)
+   
+   ![Hybrid topology](images/Hybrid%20Topology.png)
+
+---
+
+### 13. What is guided media and unguided media?
+
+**Short Answer:**  
+Guided media uses physical pathways for data transmission, while unguided media transmits data through the air or space.
+
+**Detailed Answer:**  
+- **Guided Media:** Includes cables like coaxial cables, fiber optics, and twisted pair cables. The data travels through these physical mediums, providing high reliability and security.
+- **Unguided Media:** Includes wireless transmission methods such as radio waves, microwaves, and infrared signals. It is suitable for mobile communication but may face interference and security challenges.
+
+**Example:**  
+Fiber optic cables represent guided media, while Wi-Fi represents unguided media.
+
+---
+
+### 14. What is Zigbee, Wi-Fi, CSMA-CD?
+
+**Short Answer:**  
+Zigbee is a low-power wireless protocol for IoT; Wi-Fi is a wireless networking technology; CSMA-CD is a network protocol for collision detection.
+
+**Detailed Answer:**
+- **Zigbee:** Designed for low-power, low-data-rate applications, commonly used in smart home devices and automation systems. It operates on the IEEE 802.15.4 standard.
+  
+- **Wi-Fi:** A widely used wireless networking technology that allows devices to connect to the Internet. It operates on various standards (IEEE 802.11) and supports high data rates over moderate distances.
+  
+- **CSMA-CD (Carrier Sense Multiple Access with Collision Detection):** A network protocol for Ethernet networks that prevents collisions during data transmission. Devices listen before transmitting and detect collisions, waiting for a random time before retrying.
+
+**Example:**  
+Zigbee is often used in smart lighting systems, Wi-Fi in home networks, and CSMA-CD in wired Ethernet networks.
+
+---
+
+### 15. Write a short on access technique.
+
+**Short Answer:**  
+Access techniques manage how devices communicate over a shared medium.
+
+**Detailed Answer:**  
+Access techniques are methods used to control how data is transmitted over a network. Common techniques include:
+
+- **CSMA/CD (Carrier Sense Multiple Access with Collision Detection):** Used in wired networks (e.g., Ethernet), where devices listen before transmitting to avoid collisions.
+  
+- **CSMA/CA (Carrier Sense Multiple Access with Collision Avoidance):** Used in wireless networks (e.g., Wi-Fi) to prevent collisions by waiting for a clear channel before transmitting.
+  
+- **Token Ring:** A token is passed around the network; only the device holding the token can transmit, eliminating collisions.
+
+**Example:**  
+Wi-Fi uses CSMA/CA to manage how multiple devices share the airwaves effectively.
